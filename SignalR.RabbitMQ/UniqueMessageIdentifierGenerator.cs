@@ -62,7 +62,7 @@ namespace SignalR.RabbitMQ
                 _lock.EnterWriteLock();
 
                 var toReturn = GenerateValue();
-                if (toReturn < _lastSeenMessageIdentifier)
+                if (toReturn <= _lastSeenMessageIdentifier)
                 {
                     return _lastSeenMessageIdentifier++;
                 }
